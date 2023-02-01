@@ -25,6 +25,19 @@ class BST:
                break
             current = current.right
    
+   def search(self,value):
+      if not self.root:
+         return False
+      current = self.root
+      while current:
+         if value == current.value:
+            return True
+         elif value < current.value:
+            current = current.left
+         else:
+            current = current.right
+      return False
+   
    def buildtree(self,inputdata):
       self.root = Node(inputdata[0])
       for i in range(1,len(inputdata)):
@@ -69,5 +82,8 @@ if __name__ == '__main__':
    # sam.add(23)
    # sam.add(78)
    # sam.add(85)
-   sam.printtree("preorder")
+   sam.printtree("inorder")
+   print(sam.search(3))
+   
+   
    
